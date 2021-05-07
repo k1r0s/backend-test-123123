@@ -1,0 +1,25 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": "3.0.0",
+        "targets": {
+          "node": true
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "cwd": "packagejson",
+      "root": ["./"],
+      "alias": {
+        "@": "./components",
+        "libs": "./libs",
+        "node_modules": "./node_modules"
+      }
+    }]
+  ]
+}
