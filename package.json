@@ -1,0 +1,37 @@
+{
+  "name": "challenge-fake-api",
+  "version": "1.0.0",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/start"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/register": "^7.9.0",
+    "@hapi/joi": "^16.1.7",
+    "app-root-path": "^2.2.1",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "body-parser": "^1.16.1",
+    "config": "^2.0.1",
+    "core-js": "^3.6.4",
+    "cors": "^2.8.5",
+    "express": "^4.15.4",
+    "faker": "^5.5.3",
+    "mongoose": "^5.12.7",
+    "mongoose-schema-jsonschema": "^1.2.1",
+    "multer": "^1.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-mocha": "^4.11.0",
+    "eslint-plugin-react": "^7.2.1"
+  }
+}
