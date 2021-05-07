@@ -1,0 +1,10 @@
+{
+  "apiVersion": "v1",
+  "entorno": "default",
+  "mongodb": {
+      "uri": "mongodb://localhost:27017/challenge_v1_db"
+  },
+  "apiKeys": {
+    "localhost": "35cfafab8ef7cfcb2a9bc4e8e4303f59"
+  }
+}
