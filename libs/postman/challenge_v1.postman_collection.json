@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "eb4065d3-e8b9-4a2a-b8db-904a1dc8f664",
+		"name": "challenge_v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "deliveries",
+			"item": [
+				{
+					"name": "api/v1/deliveries [FINDONE]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/deliveries/6091816209c2c702f45b6ebb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"deliveries",
+								"6091816209c2c702f45b6ebb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/deliveries [FIND]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/deliveries/?limit=15&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"deliveries",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "15"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/v1/deliveries [CREATE]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"when\": \"2020-01-01T01:01:00.000Z\",\n    \"origin\": {\n      \"street\": \"Alcalá\",\n      \"number\": \"375\",\n      \"city\": \"Madrid\",\n      \"postalCode\": \"28001\"\n    },\n    \"destination\": {\n      \"street\": \"Alcalá\",\n      \"number\": \"550\",\n      \"city\": \"Madrid\",\n      \"postalCode\": \"28001\"\n    },\n    \"products\": ['']\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/v1/deliveries/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"deliveries",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "api/v1/products [FIND]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/v1/products/?limit=15&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "15"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tracking",
+			"item": [
+				{
+					"name": "public/web/tracking",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/public/web/tracking/6091816209c2c702f45b6ebb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"public",
+								"web",
+								"tracking",
+								"6091816209c2c702f45b6ebb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
