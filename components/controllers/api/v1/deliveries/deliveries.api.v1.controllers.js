@@ -24,6 +24,11 @@ router.route('/')
     (req, res, next) => handler(validator, req, res, next, validations['mainPost']),
     (req, res, next) => responses(deliveriesCommonServices.create, req, res, next))
 
+router.route('/deliveryLookup')
+  .get(
+    (...args) => handler(getValidator, ...args.concat(validations['deliveryLookup'])),
+    (...args) => responses(deliveriesCommonServices.deliveryLookup, ...args))
+
 router.route('/:id')
   .get(
     (req, res, next) => handler(getValidator, req, res, next, validations['getOne']),

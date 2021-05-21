@@ -42,7 +42,8 @@ router.mountRoutes(app);
 
 // Handle uncaughtException
 process.on('uncaughtException', (err) => {
-  console.log('Caught exception: %j', err);
+  console.log(err);
+//  console.log('Caught exception: %j', err);
 });
 
 export default app;

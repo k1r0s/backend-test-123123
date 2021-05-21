@@ -1,5 +1,44 @@
 import Deliveries from '@/models/Deliveries.model';
 
+const cursorInterface = (cursorInstance, predicate, found) => new Promise(resolve => {
+  let amount = 0;
+  cursorInstance.on('data', (document => {
+    if(predicate(document)) found(document, amount++);
+  }));
+  cursorInstance.on('end', () => resolve(amount));
+})
+
+const deliveryLookup = async (req) => {
+  let { dateFrom, dateTo, weight } = req.body;
+
+  let limit = req.body.limit ? (req.body.limit > 100 ? 100 : parseInt(req.body.limit)) : 100;
+  let skip = req.body.page ? ((Math.max(0, parseInt(req.body.page)) - 1) * limit) : 0;
+  let sort = { _id: 1 }
+
+  const query = Deliveries
+    .where('when')
+    .gte(dateFrom)
+    .lte(dateTo)
+    .sort(sort)
+    .populate('products')
+
+  let deliveries = [];
+  // this solution seems to be veeery slow :\
+  const totalResults = await cursorInterface(
+    query.cursor(),
+    (document) => document.products.some(prod => prod.weight >= weight),
+    (document, indx) => {
+      // raw pagination.. it must be improved
+      return indx >= skip && deliveries.length < limit && deliveries.push(document);
+    }
+  );
+
+  return {
+    totalResults,
+    deliveries
+  }
+}
+
 const find = async (req) => {
   // some vars
   let query = {};
@@ -62,6 +101,7 @@ const findOne = async (req) => {
 
 export default {
   find,
+  deliveryLookup,
   create,
   findOne
 }
